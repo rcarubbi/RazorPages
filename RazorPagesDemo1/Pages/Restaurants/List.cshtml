@@ -1,0 +1,61 @@
+﻿@page
+@model RazorPagesDemo1.Pages.Restaurants.ListModel
+@{
+    ViewData["Title"] = "Restaurants";
+}
+
+<h2>Restaurants</h2>
+
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input asp-for="SearchTerm" type="search" class="form-control" />
+            <div class="input-group-append">
+                <button class="btn btn-outline-info">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+@*<table class="table">
+    @foreach (var restaurant in Model.Restaurants)
+    {
+        <tr>
+            <td>@restaurant.Name</td>
+            <td>@restaurant.Location</td>
+            <td>@restaurant.Cousine</td>
+            <td>
+                <a class="btn btn-lg"
+                   asp-page="./Detail"
+                   asp-route-restaurantId="@restaurant.Id">
+                    <i class="fas fa-search-plus"></i>
+                </a>
+                <a class="btn btn-lg"
+                   asp-page="./Edit"
+                   asp-route-restaurantId="@restaurant.Id">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a class="btn btn-lg"
+                   asp-page="./Delete"
+                   asp-route-restaurantId="@restaurant.Id">
+                    <i class="fas fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+    }
+</table>*@
+
+@foreach (var restaurant in Model.Restaurants)
+{
+    <Partial name="_Summary" model="restaurant" />
+}
+
+
+<a asp-page=".\Edit" class="btn btn-primary">Add New</a>
+
+@section footer {
+    <div>@Model.Message</div>
+}
+
+

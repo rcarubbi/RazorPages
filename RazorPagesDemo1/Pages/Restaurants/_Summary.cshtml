@@ -1,0 +1,32 @@
+﻿@using RazorPagesDemo1.Core
+@model Restaurant
+
+<div class="card">
+    <div class="card-body bg-light">
+        <div class="card-title">
+            <h2>@Model.Name</h2>
+        </div>
+        <div class="card-text">
+            <div>Location: @Model.Location</div>
+            <div>Cousine: @Model.Cousine</div>
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-lg"
+               asp-page="./Detail"
+               asp-route-restaurantId="@Model.Id">
+                <i class="fas fa-search-plus"></i>
+            </a>
+            <a class="btn btn-lg"
+               asp-page="./Edit"
+               asp-route-restaurantId="@Model.Id">
+                <i class="fas fa-edit"></i>
+            </a>
+            <a class="btn btn-lg"
+               asp-page="./Delete"
+               asp-route-restaurantId="@Model.Id">
+                <i class="fas fa-trash"></i>
+            </a>
+        </div>
+    </div>
+</div>
+ <hr/>
